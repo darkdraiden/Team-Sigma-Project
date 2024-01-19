@@ -1,0 +1,18 @@
+<div>
+  <h1>Login!</h1>
+    <form (ngSubmit)="loginClick()">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="text" class="form-control" name ="email" id ="email"  [(ngModel)]="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="pass">Password</label>
+          <input type="password"  name ="pass" id ="pass" [(ngModel)]="pass" class="form-control" placeholder="Password">
+        </div>
+        <li >
+          <a class="link-primary" href="/signup">Signup instead</a>
+        </li>
+
+        <button type="submit" class="btn btn-primary" >Login</button>
+      </form>
+</div>
