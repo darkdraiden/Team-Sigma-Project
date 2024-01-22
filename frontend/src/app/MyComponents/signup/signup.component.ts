@@ -1,21 +1,47 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import e from 'express';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, HttpClientModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
-  email: string | undefined;
-  pass: string | undefined;
+
+  constructor(private userService :UserService)
+  {
+
+  }
+
+  public user = {
+    email : '', 
+    pass : ''
+  }
   
   signupClick( )
   {
-    email : this.email
-    pass : this.pass
-    console.log("signup button click", this.email, this.pass )
+    email : this.user.email
+    pass : this.user.pass
+    console.log("signup button click", this.user.email, this.user.pass )
+
+    ///adduser user service
+    this.userService.addUser(this.user).subscribe(
+      (data) =>{
+        console.log(data,"signup from backend")
+      }, 
+      (error) =>
+      {
+        console.log("error form backend", error)
+        alert("somethign went wrong")
+      }
+    )
+
+
+
   }
 }
