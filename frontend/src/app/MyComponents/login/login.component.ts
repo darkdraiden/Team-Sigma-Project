@@ -13,31 +13,27 @@ import baseurl from '../../services/helper';
   styleUrl: './login.component.css'
 })
 export class LoginComponent  {
-  [x: string]: any;
-  // http: any;
-  constructor(private http :HttpClient)
-  {
+  http: any;
+  // constructor(private userService :UserService, private router: Router)
+  // {
       
-  }
+  // }
 
-   user:any = {
-    username : 'naman.c@consultadd.com', 
-    password : '1234'
+  public user = {
+    username : '', 
+    password : ''
   }
   
   loginClick( )
   {
-    // username : this.user.username
-    // password : this.user.password
+
     console.log("login button click", this.user.username, this.user.password )
 
-    this.http.post(`http://localhost:8081/auth/login`, this.user).subscribe((res:any)=>{
-      console.log(res.token);
-      if(res.token)
+    this.http.post(`${baseurl}/auth/login`, this.user).subscribe((res:any)=>{
+      if(res.result)
       {
         alert("login success")
         localStorage.setItem('loginToken',res.data.token)
-        
         // this.router.navigateByUrl("/")
       }
       else{
