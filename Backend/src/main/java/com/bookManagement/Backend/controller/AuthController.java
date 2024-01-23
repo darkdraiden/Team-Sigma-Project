@@ -77,7 +77,9 @@ private UserRepo userRepo;
     }
 
     @PostMapping("/create-user")
+    @CrossOrigin(origins = "http://localhost:4200")
     public User createUser(@RequestBody User user){
+        System.out.println("client ");
         return userService.addUser(user);
     }
 

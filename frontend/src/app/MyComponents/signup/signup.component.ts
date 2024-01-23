@@ -15,18 +15,18 @@ export class SignupComponent {
 
   constructor(private userService :UserService)
   {
-
+      
   }
 
   public user = {
-    email : '', 
-    pass : ''
+    username : '', 
+    password : ''
   }
   
   signupClick( )
   {
     
-    console.log("signup button click", this.user.email, this.user.pass )
+    console.log("signup button click", this.user.username, this.user.password )
 
     ///adduser user service
     this.userService.addUser(this.user).subscribe(

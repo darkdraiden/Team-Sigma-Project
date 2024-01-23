@@ -15,6 +15,7 @@ export class UserService {
   /// add user
   public addUser(user:any)
   {
-    return this.http.post(`${baseurl}/auth`, user)
+    console.log("xyzzzzz");
+    return this.http.post(`${baseurl}/auth/create-user`, user)
   }
 }
