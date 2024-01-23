@@ -1,1 +1,4 @@
 <h1>Welcome !</h1>
+<div *ngFor="let book of books">
+    <app-books-item [book] = "book"></app-books-item>
+</div>

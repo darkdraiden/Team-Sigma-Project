@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import e from 'express';
+
 
 @Component({
   selector: 'app-signup',
@@ -25,8 +25,7 @@ export class SignupComponent {
   
   signupClick( )
   {
-    email : this.user.email
-    pass : this.user.pass
+    
     console.log("signup button click", this.user.email, this.user.pass )
 
     ///adduser user service

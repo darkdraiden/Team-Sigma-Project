@@ -10,10 +10,15 @@
     "profile": {
       "name": "typicode"
     },
-    "auth/signup" :[
+    "auth" :[
         {
-            "email": "122",
-            "pass":"qww"
+
+            "signup":[
+                {
+                    "email": "122",
+                    "pass":"qww"
+                }
+            ] 
         }
     ]
   }
