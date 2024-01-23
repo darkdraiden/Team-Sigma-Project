@@ -18,6 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/auth")
@@ -66,10 +67,14 @@ private UserRepo userRepo;
             manager.authenticate(authentication);
             System.out.println("error");
 
-
-        } catch (BadCredentialsException e) {
-            throw new BadCredentialsException(" Invalid Username or Password  !!");
         }
+//         catch (BadCredentialsException e) {
+//            throw new BadCredentialsException(" Invalid Username or Password  !!");
+//        }
+            catch (BadCredentialsException e) {
+                // If credentials are invalid, return an error response with HTTP status code 401 (Unauthorized)
+                throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid Username or Password", e);
+            }
 
     }
 
@@ -79,10 +84,10 @@ private UserRepo userRepo;
 //    }
 
     //edited
-    @ExceptionHandler(BadCredentialsException.class)
-    public HttpStatus exceptionHandler() {
-        return HttpStatus.NOT_FOUND;
-    }
+//    @ExceptionHandler(BadCredentialsException.class)
+//    public HttpStatus exceptionHandler() {
+//        return HttpStatus.NOT_FOUND;
+//    }
 
     @PostMapping("/create-user")
     @CrossOrigin(origins = "http://localhost:4200")
