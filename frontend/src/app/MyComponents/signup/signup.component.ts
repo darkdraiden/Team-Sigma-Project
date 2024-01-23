@@ -18,7 +18,7 @@ export class SignupComponent {
       
   }
 
-  public user = {
+  user : any = {
     username : '', 
     password : ''
   }

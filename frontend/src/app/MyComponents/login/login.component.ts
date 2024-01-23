@@ -31,7 +31,7 @@ export class LoginComponent  {
   //   // password : this.user.password
   //   console.log("login button click", this.user.username, this.user.password )
 
-  //   this.http.post(`http://localhost:8081/auth/login`, this.user).subscribe((res:any)=>{
+  //   this.http.post(http://localhost:8081/auth/login, this.user).subscribe((res:any)=>{
   //     console.log(res.token);
   //     if(res.token)
   //     {
