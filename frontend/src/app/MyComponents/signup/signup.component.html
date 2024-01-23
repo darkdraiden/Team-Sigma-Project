@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <h1>Signup!</h1>
     <form (ngSubmit)="signupClick()">
         <div class="form-group">
@@ -15,4 +15,27 @@
 
         <button type="submit" class="btn btn-primary" >Signup</button>
       </form>
-</div>
+</div> -->
+
+
+<body>
+  <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+  </div>
+  <form (ngSubmit)="signupClick()">
+      <h3>Signup Here</h3>
+
+      <label for="username">Email</label>
+      <input type="text" placeholder="Email " name ="username" id ="username"  [(ngModel)]="user.username" id="username">
+
+      <label for="password">Password</label>
+      <input type="password" placeholder="Password" name ="password" id ="password" [(ngModel)]="user.password">
+
+      <li >
+        <a class="link-primary" href="/login">login instead</a>
+      </li>
+      <button type="submit" class="btn btn-primary" >Signup</button>
+      
+  </form>
+</body>
