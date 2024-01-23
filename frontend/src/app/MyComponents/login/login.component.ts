@@ -13,33 +13,36 @@ import baseurl from '../../services/helper';
   styleUrl: './login.component.css'
 })
 export class LoginComponent  {
-  http: any;
-  constructor(private userService :UserService, private router: Router)
+  [x: string]: any;
+  // http: any;
+  constructor(private http :HttpClient)
   {
       
   }
 
-  public user = {
-    username : '', 
-    password : ''
+   user:any = {
+    username : 'naman.c@consultadd.com', 
+    password : '1234'
   }
   
   loginClick( )
   {
-    username : this.user.username
-    password : this.user.password
+    // username : this.user.username
+    // password : this.user.password
     console.log("login button click", this.user.username, this.user.password )
 
-    // this.http.post(`${baseurl}/auth/login`, this.user).subscribe((res:any)=>{
-    //   if(res.result)
-    //   {
-    //     alert("login success")
-    //     localStorage.setItem('loginToken',res.data.token)
-    //     // this.router.navigateByUrl("/")
-    //   }
-    //   else{
-    //     alert(res.message + "something went wrong")
-    //   }
-    // })
+    this.http.post(`http://localhost:8081/auth/login`, this.user).subscribe((res:any)=>{
+      console.log(res.token);
+      if(res.token)
+      {
+        alert("login success")
+        localStorage.setItem('loginToken',res.data.token)
+        
+        // this.router.navigateByUrl("/")
+      }
+      else{
+        alert(res.message + "something went wrong")
+      }
+    })
   }
 }

@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -36,6 +37,7 @@ private UserRepo userRepo;
 
 
     @PostMapping("/login")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<JWTResponse> login(@RequestBody JWTRequest request) {
         System.out.println("here");
 
@@ -71,9 +73,15 @@ private UserRepo userRepo;
 
     }
 
+//    @ExceptionHandler(BadCredentialsException.class)
+//    public String exceptionHandler() {
+//        return "Credentials Invalid !!";
+//    }
+
+    //edited
     @ExceptionHandler(BadCredentialsException.class)
-    public String exceptionHandler() {
-        return "Credentials Invalid !!";
+    public HttpStatus exceptionHandler() {
+        return HttpStatus.NOT_FOUND;
     }
 
     @PostMapping("/create-user")
