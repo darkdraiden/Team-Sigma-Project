@@ -18,8 +18,8 @@ export class AddBookComponent {
     bookDescription :"",
     genre : "",
     author :"",
-    quantity :1,
-    price : 1000
+    quantity :"",
+    price : ""
   }
   constructor(private http :HttpClient)
   {

@@ -1,7 +1,7 @@
 <body>
     <div class="background my-3">
-        <div class="shape"></div>
-        <div class="shape"></div>
+        <!-- <div class="shape"></div>
+        <div class="shape"></div> -->
     </div>
     <form (ngSubmit)="addBook()">
         <h3>Add Book</h3>
@@ -12,7 +12,15 @@
         <input type="text" placeholder="Author " name ="author" id ="author"  [(ngModel)]="books.author" id="author">
         <label for="description">Description</label>
         <input type="text" placeholder="Description " name ="description" id ="description"  [(ngModel)]="books.bookDescription" id="description">
-  
+        <label for="genre">genre</label>
+        <input type="text" placeholder="genre " name ="genre" id ="genre"  [(ngModel)]="books.genre" id="genre">
+        <label for="price">price</label>
+        <input type="text" placeholder="price " name ="price" id ="price"  [(ngModel)]="books.price" id="price">
+        <label for="quantity">quantity</label>
+        <input type="text" placeholder="quantity " name ="quantity" id ="quantity"  [(ngModel)]="books.quantity" id="quantity">
+        <!-- <label for="description">Description</label>
+        <input type="text" placeholder="Description " name ="description" id ="description"  [(ngModel)]="books.bookDescription" id="description">
+   -->
 
         <button type="submit" class="btn btn-primary" >AddBook</button>
         
