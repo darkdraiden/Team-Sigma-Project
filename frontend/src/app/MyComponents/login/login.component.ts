@@ -1,9 +1,9 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import { Router } from 'express';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import baseurl from '../../services/helper';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +34,7 @@ export class LoginComponent  {
         if (res.token) {
           alert("Login success");
           localStorage.setItem('loginToken', res.token);
+          this['Router'].navigate(['/']);
           // Redirect or perform other actions on successful login
         } else {
           alert("Something went wrong");

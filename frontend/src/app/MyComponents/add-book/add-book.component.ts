@@ -12,8 +12,8 @@ import { error } from 'node:console';
 })
 export class AddBookComponent {
   books : any = {
-    bookId : 300, 
-    sellerId : 700,
+    bookId : "", 
+    sellerId : "",
     bookName: "",
     bookDescription :"",
     genre : "",
@@ -21,6 +21,7 @@ export class AddBookComponent {
     quantity :"",
     price : ""
   }
+  router: any;
   constructor(private http :HttpClient)
   {
       
@@ -40,28 +41,16 @@ export class AddBookComponent {
 
     // Set the JWT token in the request headers
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
-    ///adduser user service
-    // this.http.post(`http://localhost:8081/home/create-book`, this.books,
-    // {headers}).subscribe(
-    //   (res: any) => {
 
-    //     alert("Book added");
-
-
-    //   },
-    //   (error) => {
-
-    //       alert(error+"this is the error");
-
-    //   }
-    // );
     this.http.post(`http://localhost:8081/home/create-book`, this.books, { headers })
       .subscribe(
         (res: any) => {
           alert(res.message);
+          this.router.navigate(['/']);
         },
         (error) => {
           alert(error.message);
+          // this.router.navigate(['/']);
         }
       );
 

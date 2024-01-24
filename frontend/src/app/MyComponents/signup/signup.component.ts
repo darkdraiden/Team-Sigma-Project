@@ -27,7 +27,7 @@ export class SignupComponent {
   signupClick( )
   {
     
-    console.log("signup button click", this.user.username, this.user.password )
+    console.log("signup button click", this.user.username, this.user.password, this.user.name )
 
     ///adduser user service
     this.userService.addUser(this.user).subscribe(
