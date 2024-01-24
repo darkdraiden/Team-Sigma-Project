@@ -32,6 +32,9 @@ import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import javax.sql.DataSource;
 
@@ -52,7 +55,7 @@ public class SecurityConfig  {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
-                .cors(cors->cors.disable())
+                .cors(cors->corsConfigurationSource())
                 .authorizeHttpRequests(auth->
                 auth.requestMatchers("/home/**").authenticated().requestMatchers("/auth/create-user").permitAll().requestMatchers("auth/login").permitAll().anyRequest().authenticated()
                         )
@@ -64,6 +67,24 @@ public class SecurityConfig  {
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
+
+    //edited part
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.addAllowedOrigin("http://localhost:4200"); // Add the origin of your Angular app
+        configuration.addAllowedHeader("*");
+        configuration.addAllowedMethod("GET");
+        configuration.addAllowedMethod("POST");
+        configuration.addAllowedMethod("PUT");
+        configuration.addAllowedMethod("DELETE");
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+
+        return source;
+    }
+
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider Provider=new DaoAuthenticationProvider();

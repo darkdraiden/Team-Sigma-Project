@@ -1,7 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { Book } from "../../Book";
 import { FormsModule,  } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { error } from 'node:console';
 @Component({
   selector: 'app-add-book',
   standalone: true,
@@ -11,14 +12,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class AddBookComponent {
   books : any = {
-    bookId : "", 
-    sellerId : '',
-    bookName: '',
+    bookId : 300, 
+    sellerId : 700,
+    bookName: "",
     bookDescription :"",
     genre : "",
     author :"",
-    quantity :"",
-    price : ""
+    quantity :1,
+    price : 1000
   }
   constructor(private http :HttpClient)
   {
@@ -27,29 +28,42 @@ export class AddBookComponent {
 
   addBook()
   {
-    
-    console.log("addbook", this.books.name, this.books.author )
+    bookName:this.books.bookName;
+    console.log("addbook", this.books.bookName, this.books.author )
+    const jwtToken = localStorage.getItem('loginToken'); // Replace with your actual key
 
+    if (!jwtToken) {
+      // Handle the case when the token is not available
+      alert('JWT token not found in local storage');
+      return;
+    }
+
+    // Set the JWT token in the request headers
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
     ///adduser user service
-    this.http.post(`http://localhost:8081/auth/login`, this.books).subscribe(
-      (res: any) => {
-        console.log(res.token);
-        if (res.token) {
-          alert("Book added");
+    // this.http.post(`http://localhost:8081/home/create-book`, this.books,
+    // {headers}).subscribe(
+    //   (res: any) => {
 
-        } else {
-          alert("Something went wrong");
+    //     alert("Book added");
+
+
+    //   },
+    //   (error) => {
+
+    //       alert(error+"this is the error");
+
+    //   }
+    // );
+    this.http.post(`http://localhost:8081/home/create-book`, this.books, { headers })
+      .subscribe(
+        (res: any) => {
+          alert(res.message);
+        },
+        (error) => {
+          alert(error.message);
         }
-      },
-      (error) => {
-        // Handle errors here
-        if (error.status === 401) {
-          alert(error);
-        } else {
-          alert("Something went wrong");
-        }
-      }
-    );
+      );
 
   }
   
