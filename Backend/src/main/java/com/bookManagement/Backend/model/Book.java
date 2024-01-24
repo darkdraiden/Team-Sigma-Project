@@ -30,7 +30,7 @@ private Integer bookId;
     String author;
     Integer quantity;
     Integer price;
-    @Column(name = "image", length = 2000)
+    @Column(name = "image", length = 5000)
     String image;
 //    public void setBookId(BookId bookId) {
 //        this.bookId = bookId;

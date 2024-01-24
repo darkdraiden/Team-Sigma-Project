@@ -17,9 +17,10 @@ export class BooksComponent {
     
   }
 
-  ngOnInti()
+  ngOnInit()
   {
     let response = this.http.get(`http://localhost:8081/books`);
+    console.log("on books");
     response.subscribe((data)=>this.books = data)
   }
 }

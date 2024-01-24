@@ -48,7 +48,8 @@ public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
     //list of books
     @GetMapping("/books")
     public List<Book> showBooks(){
-            return bookService.getAllBooks();
+        System.out.println("on books");
+    return bookService.getAllBooks();
     }
 
 }
