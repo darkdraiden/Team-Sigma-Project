@@ -1,4 +1,18 @@
-<h1>Welcome !</h1>
-<div *ngFor="let book of books">
-    <app-books-item [book] = "book"></app-books-item>
+<h1>Welcome!</h1>
+
+<div class="row">
+  <div *ngFor="let book of books" class="col-md-3 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <img src={{book.image}} class="card-img-top" alt="...">
+        <h4 class="card-title">{{book.bookName}}</h4>
+        <h5 class="card-subtitle mb-2 text-body-secondary">{{book.author}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{book.genre}}</h6>
+        <p class="card-text">{{book.bookDescription}}</p>
+        <!-- Add other card content or actions as needed -->
+        <button type="button" class="btn btn-success">Buy Now</button>
+
+      </div>
+    </div>
+  </div>
 </div>

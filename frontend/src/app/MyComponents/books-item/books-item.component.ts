@@ -9,5 +9,5 @@ import { Book } from '../../Book';
   styleUrl: './books-item.component.css'
 })
 export class BooksItemComponent {
-  @Input () book :Book | undefined ;
+  @Input () book :Book | undefined  ; 
 }
