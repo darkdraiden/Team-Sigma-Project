@@ -45,7 +45,7 @@ export class AddBookComponent {
     this.http.post(`http://localhost:8081/home/create-book`, this.books, { headers })
       .subscribe(
         (res: any) => {
-          alert(res.message);
+          alert("book added");
           this.router.navigate(['/']);
         },
         (error) => {

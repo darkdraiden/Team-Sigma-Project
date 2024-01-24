@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Book } from "../../../app/Book";
 import { NgFor } from '@angular/common';
 import { BooksItemComponent } from "../books-item/books-item.component";
+import { HttpClient } from '@angular/common/http';
 @Component({
     selector: 'app-books',
     standalone: true,
@@ -10,25 +11,15 @@ import { BooksItemComponent } from "../books-item/books-item.component";
     imports: [NgFor, BooksItemComponent]
 })
 export class BooksComponent {
-  books :Book[]
-  constructor()
+  books : any
+  constructor(private http :HttpClient)
   {
-    this.books = [
-      {
-        name : "book1",
-        author : "a1",
-        desc : "desc 1"
-      },
-      {
-        name : "book2",
-        author : "a1",
-        desc : "desc 2"
-      },
-      {
-        name : "book3",
-        author : "a1",
-        desc : "desc 3"
-      },
-    ]
+    
+  }
+
+  ngOnInti()
+  {
+    let response = this.http.get(`http://localhost:8081/books`);
+    response.subscribe((data)=>this.books = data)
   }
 }
