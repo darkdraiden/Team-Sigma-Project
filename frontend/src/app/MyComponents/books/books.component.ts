@@ -16,15 +16,18 @@ export class BooksComponent {
     this.books = [
       {
         name : "book1",
-        author : "a1"
+        author : "a1",
+        desc : "desc 1"
       },
       {
         name : "book2",
-        author : "a1"
+        author : "a1",
+        desc : "desc 2"
       },
       {
         name : "book3",
-        author : "a1"
+        author : "a1",
+        desc : "desc 3"
       },
     ]
   }

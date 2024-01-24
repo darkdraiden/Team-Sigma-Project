@@ -20,7 +20,8 @@ export class SignupComponent {
 
   user : any = {
     username : '', 
-    password : ''
+    password : '',
+    name: ''
   }
   
   signupClick( )
