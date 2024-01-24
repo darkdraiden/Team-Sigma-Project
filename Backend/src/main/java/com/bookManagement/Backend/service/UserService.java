@@ -32,6 +32,9 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepo.save(user);
     }
+    public boolean isExists(String username){
+        return userRepo.existsById(username);
+    }
 
     public List<User> getUserList(){
         return userRepo.findAll();

@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/home")
+//@RequestMapping("/home")
 public class BookController {
     @Autowired
     private BookService bookService;
@@ -58,7 +58,7 @@ public class BookController {
 //        return ResponseEntity.ok("Book created");
 //
 //}
-@PostMapping("/create-book")
+@PostMapping("home/create-book")
 @CrossOrigin(origins = "http://localhost:4200")
 public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
     System.out.println("client");
@@ -69,15 +69,12 @@ public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
     if(bookService.doesExists(bookId, sellerId)){
         Optional<Book> existingBook = bookService.findBook(bookId, sellerId);
         book.setQuantity(existingBook.get().getQuantity() + 1);
-
-        // You might want to update the existing book in the database here
-
-        response.put("status", "Book already exists");
+//        response.put("status", "Book already exists");
         response.put("message", "Quantity updated");
     } else {
         bookService.addBook(book);
         response.put("status", "Book created");
-        response.put("message", "Book added successfully");
+//        response.put("message", "Book added successfully");
     }
 
     return ResponseEntity.ok(response);

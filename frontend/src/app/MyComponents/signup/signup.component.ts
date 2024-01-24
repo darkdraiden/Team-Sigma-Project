@@ -40,11 +40,16 @@ export class SignupComponent {
 
     ///adduser user service
     this.userService.addUser(this.user).subscribe(
-      (data) =>{
-        console.log(data,"signup from backend")
-        alert("success")
-        this.router.navigate(['/']);
-      }, 
+      (data:any) =>{
+        if (data.status === 'User created') {
+          console.log(data, "signup from backend");
+          alert("User created successfully");
+          this.router.navigate(['/']);
+        } else {
+          console.error("Error from backend:", data.message);
+          alert("User already exists " + data.message);
+        }
+      },
       (error) =>
       {
         console.log("error form backend", error)
