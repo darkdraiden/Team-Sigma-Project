@@ -15,7 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent  {
   [x: string]: any;
   // http: any;
-  constructor(private http :HttpClient)
+  constructor(private http :HttpClient, private router: Router)
   {
       
   }
@@ -27,25 +27,33 @@ export class LoginComponent  {
   
   loginClick() {
     console.log("login button click", this.user.username, this.user.password );
-  
+    
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailRegex.test(this.user.username)) {
+      alert("Invalid email format");
+      return;
+    }
+
     this.http.post(`http://localhost:8081/auth/login`, this.user).subscribe(
       (res: any) => {
         console.log(res.token);
         if (res.token) {
           alert("Login success");
           localStorage.setItem('loginToken', res.token);
-          this['Router'].navigate(['/']);
+          this.router.navigate(['/']);
           // Redirect or perform other actions on successful login
         } else {
-          alert("Something went wrong");
+          alert("Something went wrong, token not generated" );
+          
         }
       },
       (error) => {
         // Handle errors here
         if (error.status === 401) {
-          alert("Invalid username or password");
+          alert("Invalid username or password"+ error);
         } else {
-          alert("Something went wrong");
+          alert("Something went wrong"+ error);
         }
       }
     );
