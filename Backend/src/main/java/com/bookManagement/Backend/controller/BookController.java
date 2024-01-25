@@ -52,4 +52,12 @@ public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
     return bookService.getAllBooks();
     }
 
+
+    @PostMapping("/home/buy")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public ResponseEntity<Map<String,String>> buyBook(@RequestBody Object obj){
+          
+    }
+
+
 }
