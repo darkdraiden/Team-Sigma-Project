@@ -23,4 +23,8 @@ export class BooksComponent {
     console.log("on books");
     response.subscribe((data)=>this.books = data)
   }
+  buyClick()
+  {
+    console.log("buy clikck")
+  }
 }

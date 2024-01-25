@@ -41,6 +41,7 @@ export class LoginComponent  {
         if (res.token) {
           alert("Login success");
           localStorage.setItem('loginToken', res.token);
+          localStorage.setItem('email', res.username);
           this.router.navigate(['/']);
           // Redirect or perform other actions on successful login
         } else {
