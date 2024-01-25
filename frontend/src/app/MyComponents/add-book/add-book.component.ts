@@ -12,36 +12,32 @@ import { error } from 'node:console';
 })
 export class AddBookComponent {
   books : any = {
-    bookId : "", 
+    bookId : "",
     sellerId : "",
     bookName: "",
     bookDescription :"",
     genre : "",
     author :"",
     quantity :"",
-    price : ""
+    price : "",
+    image : ""
   }
   router: any;
   constructor(private http :HttpClient)
   {
-      
   }
-
   addBook()
   {
     bookName:this.books.bookName;
     console.log("addbook", this.books.bookName, this.books.author )
     const jwtToken = localStorage.getItem('loginToken'); // Replace with your actual key
-
     if (!jwtToken) {
       // Handle the case when the token is not available
       alert('JWT token not found in local storage');
       return;
     }
-
     // Set the JWT token in the request headers
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
-
     this.http.post(`http://localhost:8081/home/create-book`, this.books, { headers })
       .subscribe(
         (res: any) => {
@@ -53,7 +49,5 @@ export class AddBookComponent {
           // this.router.navigate(['/']);
         }
       );
-
   }
-  
 }
