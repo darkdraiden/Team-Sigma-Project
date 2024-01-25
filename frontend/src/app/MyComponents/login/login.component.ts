@@ -40,6 +40,7 @@ export class LoginComponent  {
         console.log(res.token);
         if (res.token) {
           alert("Login success");
+          
           localStorage.setItem('loginToken', res.token);
           localStorage.setItem('email', res.username);
           this.router.navigate(['/']);

@@ -1,0 +1,23 @@
+.background {
+    background-color: #5CDB95; /* Set the background color for the entire page */
+    padding: 20px; /* Add padding for spacing */
+  }
+  
+  .card {
+    max-width: 400px; /* Set the maximum width of the card */
+    margin: auto; /* Center the card horizontally */
+  }
+  
+  .card-body {
+    text-align: center; /* Center the content inside the card body */
+  }
+  
+  .card-img-top {
+    max-width: 100%; /* Make sure the image doesn't exceed the card width */
+    height: auto; /* Maintain the aspect ratio of the image */
+  }
+  
+  .btn-success {
+    margin-top: 15px; /* Add some spacing between the card content and the button */
+  }
+  

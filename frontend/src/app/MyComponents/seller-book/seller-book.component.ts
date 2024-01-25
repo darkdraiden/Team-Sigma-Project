@@ -19,6 +19,7 @@ export class SellerBookComponent {
 
   ngOnInit()
   {
+    if ( localStorage )
     this.id = localStorage.getItem("email")
     if (this.id !== null) {
       let response = this.http.get('http://localhost:8081/books');

@@ -1,8 +1,13 @@
-<div  class="card my-3 mx-2" style="width: 18rem;">
-    <!-- <img src="..." class="card-img-top" alt="..."> -->
+<div class="background">
+  <div class="card">
     <div class="card-body">
-      <h5 class="card-title">{{book?.name}}</h5>
-      <p class="card-text">{{book?.author}}</p>
-      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      <img src="{{book.image}}" class="card-img-top custom-image" alt="...">
+      <h4 class="card-title">{{book.bookName}}</h4>
+      <h5 class="card-subtitle mb-2 text-body-secondary">{{book.author}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{book.genre}}</h6>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{book.bookDescription}}</h6>
+      <!-- Add other card content or actions as needed -->
+      <button type="submit" class="btn btn-success">Buy Now</button>
     </div>
-  </div> 
+  </div>
+</div>

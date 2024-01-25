@@ -27,9 +27,9 @@
         <h4 class="card-title">{{book.bookName}}</h4>
         <h5 class="card-subtitle mb-2 text-body-secondary">{{book.author}}</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">{{book.genre}}</h6>
-        <p class="card-text">{{book.bookDescription}}</p>
+        <!-- <p class="card-text">{{book.bookDescription}}</p> -->
         <!-- Add other card content or actions as needed -->
-        <button type="submit" class="btn btn-success" (click)="buyClick()">Buy Now</button>
+        <button type="submit" class="btn btn-success" (click)="buyClick(book)">Buy Now</button>
 
       </div>
     </div>
