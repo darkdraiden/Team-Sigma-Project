@@ -40,5 +40,38 @@ public class BookService {
      }
 
 
+     public void updateBook(Book book,Book existing){
+         if(book.getBookName()!="") {
+             String bookName = book.getBookName();
+             existing.setBookName(bookName);
+         }
+         if(book.getBookDescription()!="") {
+             String bookDesc = book.getBookDescription();
+             existing.setBookDescription(bookDesc);
+         }
+         if(book.getGenre()!="") {
+             String genre = book.getGenre();
+             existing.setGenre(genre);
+         }
+         if(book.getAuthor()!="") {
+             String author = book.getAuthor();
+             existing.setAuthor(author);
+         }
+         if(book.getImage()!="") {
+             String image = book.getImage();
+             existing.setImage(image);
+         }
+         if(book.getPrice()!=null) {
+             int price = book.getPrice();
+             existing.setPrice(price);
+         }
+         if(book.getQuantity()!=null) {
+             int quantity = book.getQuantity();
+             existing.setQuantity(quantity);
+         }
+         bookRepo.save(existing);
+//         return book;
+     }
+
 }
 
