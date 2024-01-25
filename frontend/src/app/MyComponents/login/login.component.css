@@ -1,4 +1,3 @@
-/* 
 *,
 *:before,
 *:after{
@@ -25,8 +24,8 @@ border-radius: 50%;
 }
 .shape:first-child{
 background: linear-gradient(
-  #1845ad,
-  #23a2f6
+  #1845AD,
+  #23A2F6
 );
 left: -80px;
 top: -80px;
@@ -34,8 +33,8 @@ top: -80px;
 .shape:last-child{
 background: linear-gradient(
   to right,
-  #ff512f,
-  #f09819
+  #FF512F,
+  #F09819
 );
 right: -30px;
 bottom: -80px;
@@ -56,7 +55,7 @@ padding: 50px 35px;
 }
 form *{
 font-family: 'Poppins',sans-serif;
-color: #ffffff;
+color: #FFFFFF;
 letter-spacing: 0.5px;
 outline: none;
 border: none;
@@ -67,7 +66,6 @@ font-weight: 500;
 line-height: 42px;
 text-align: center;
 }
-
 label{
 display: block;
 margin-top: 30px;
@@ -86,12 +84,12 @@ font-size: 14px;
 font-weight: 300;
 }
 ::placeholder{
-color: #e5e5e5;
+color: #E5E5E5;
 }
 button{
   margin-top: 20px;
   width: 100%;
-  background-color: #1bc518;
+  background-color: #1BC518;
   color: #080710;
   padding: 15px 0;
   font-size: 18px;
@@ -109,7 +107,7 @@ width: 150px;
 border-radius: 3px;
 padding: 5px 10px 10px 5px;
 background-color: rgba(255,255,255,0.27);
-color: #eaf0fb;
+color: #EAF0FB;
 text-align: center;
 }
 .social div:hover{
@@ -120,81 +118,4 @@ margin-left: 25px;
 }
 .social i{
 margin-right: 4px;
-}
-
- */
-
-
- body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #5CDB95;
-}
-
-.background {
-  /* Add your background styling here */
-  color:#5CDB95
-}
-
-.login-form {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #5CDB95;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.logo-container {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #05386B;
-}
-
-.logo-container img {
-  max-width: 100px; /* Adjust as needed */
-  height: auto;
-}
-
-.form-group {
-  margin-bottom: 20px;
-  /* color: #05386B; */
-}
-
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  /* color: #333; */
-  color: #05386B;
-}
-
-
-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.signup-link {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.link-primary {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  
-  /* margin-left: 120px; */
 }

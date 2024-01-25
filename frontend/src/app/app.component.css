@@ -1,5 +1,13 @@
-/* styles.css or your custom CSS file */
-.navbar-nav .nav-link {
+.custom-navbar {
+    background-color: #5CDB95;
+  }
+  .navbar-nav .nav-link {
     color: #05386B;
   }
-  
+  .custom-navbar .navbar-brand {
+    color: #05386B; /* Color for the navbar brand */
+  }
+
+  body {
+    background-color: #5CDB95; /* Set your desired background color */
+  }
