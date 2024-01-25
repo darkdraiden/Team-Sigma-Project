@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class BookController {
 public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
     System.out.println("client");
     Integer bookId = book.getBookId();
-    Integer sellerId = book.getSellerId();
+    String sellerId = book.getSellerId();
     Map<String, String> response = new HashMap<>();
 
     if(bookService.doesExists(bookId, sellerId)){
@@ -44,6 +45,11 @@ public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
 }
 
 
+//@PostMapping("home/sell")
+//public ResponseEntity<Map<String ,Object>> seller(@RequestBody Map<String,String> req){
+//    String username=req.get("username");
+//    if()
+//}
 
     //list of books
     @GetMapping("/books")
@@ -53,11 +59,11 @@ public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
     }
 
 
-    @PostMapping("/home/buy")
-    @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<Map<String,String>> buyBook(@RequestBody Object obj){
-          
-    }
+//    @PostMapping("/home/buy")
+//    @CrossOrigin(origins = "http://localhost:4200")
+//    public ResponseEntity<Map<String,String>> buyBook(@RequestBody Object obj){
+//
+//    }
 
 
 }

@@ -22,7 +22,7 @@ public class Book {
 @Id@Column(name = "bookId")
 private Integer bookId;
    @Id @Column(name = "sellerId")
-    private Integer sellerId;
+    private String sellerId;
 //    BookId bookId;
     String bookName;
     String bookDescription;

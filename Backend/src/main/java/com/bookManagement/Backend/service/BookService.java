@@ -21,12 +21,14 @@ public class BookService {
 //             return true;
 //         return false;
 //     }
-     public boolean doesExists(Integer bookId,Integer sellerId){
+     public boolean doesExists(Integer bookId,String sellerId){
          if(bookRepo.findBook(bookId,sellerId))
              return true;
          return false;
      }
-     public Optional<Book> findBook(Integer bookId,Integer sellerId){
+
+
+     public Optional<Book> findBook(Integer bookId,String sellerId){
          BookId bookobj=new BookId();
          bookobj.setBookId(bookId);
          bookobj.setSellerId(sellerId);
@@ -36,5 +38,7 @@ public class BookService {
      public List<Book> getAllBooks(){
          return bookRepo.findAll();
      }
+
+
 }
 

@@ -13,5 +13,5 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class BookId implements Serializable {
     private Integer bookId;
-    private Integer sellerId;
+    private String sellerId;
 }

@@ -11,5 +11,7 @@ import java.util.Optional;
 public interface BookRepo extends JpaRepository<Book, BookId> {
 //    public Optional<Book> findBook
 @Query("SELECT COUNT(b) > 0 FROM Book b WHERE b.bookId = :bookId AND b.sellerId = :sellerId")
-    public boolean findBook(Integer bookId,Integer sellerId);
+    public boolean findBook(Integer bookId,String sellerId);
+
+//    public boolean findBookBy()
 }
