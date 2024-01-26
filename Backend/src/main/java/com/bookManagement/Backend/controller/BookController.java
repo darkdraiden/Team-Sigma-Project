@@ -55,7 +55,7 @@ public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
     }
 
 
-    @PostMapping("/home/sell/update")
+    @PutMapping("/home/sell/update")
     public ResponseEntity<Map<String,String>> updateBook(@RequestBody Book book){
         Map<String, String> response = new HashMap<>();
         if(!bookService.doesExists(book.getBookId(), book.getSellerId())){
@@ -75,7 +75,7 @@ public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
     }
 
 
-    @PostMapping("/home/sell/delete")
+    @DeleteMapping("/home/sell/delete")
     public ResponseEntity<Map<String,String>> deleteBook(@RequestBody Map<String ,String> req){
           Map<String, String> response = new HashMap<>();
           int bookId=Integer.parseInt(req.get("bookId"));
