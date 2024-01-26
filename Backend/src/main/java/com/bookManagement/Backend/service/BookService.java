@@ -73,5 +73,11 @@ public class BookService {
 //         return book;
      }
 
+
+     public void deleteBook(int bookId,String sellerId){
+         BookId bookId1=new BookId(bookId,sellerId);
+          bookRepo.deleteById(bookId1);
+     }
+
 }
 

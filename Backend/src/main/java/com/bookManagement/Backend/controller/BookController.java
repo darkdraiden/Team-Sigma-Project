@@ -45,11 +45,7 @@ public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
 }
 
 
-//@PostMapping("home/sell")
-//public ResponseEntity<Map<String ,Object>> seller(@RequestBody Map<String,String> req){
-//    String username=req.get("username");
-//    if()
-//}
+
 
     //list of books
     @GetMapping("/books")
@@ -79,24 +75,18 @@ public ResponseEntity<Map<String, String>> createBook(@RequestBody Book book){
     }
 
 
-//    @PostMapping("/home/sell/delete")
-//    public ResponseEntity<Map<String,String>> deleteBook(@RequestBody Book book){
-//        Map<String, String> response = new HashMap<>();
-//        if(!bookService.doesExists(book.getBookId(), book.getSellerId())){
-//            bookService.addBook(book);
-//            response.put("status", "sucessfull");
-//            response.put("message", "Book created");
-//        }
-//        else {
-//            Optional<Book> existingBook = bookService.findBook(book.getBookId(), book.getSellerId());
-//            bookService.updateBook(book, existingBook.get());
-////        bookService.addBook(updatedBook);
-//            response.put("status", "Successfull");
-//            response.put("message", "Book updated successfully");
-//        }
-//        return ResponseEntity.ok(response);
-//
-//    }
+    @PostMapping("/home/sell/delete")
+    public ResponseEntity<Map<String,String>> deleteBook(@RequestBody Map<String ,String> req){
+          Map<String, String> response = new HashMap<>();
+          int bookId=Integer.parseInt(req.get("bookId"));
+          String sellerId=req.get("sellerId");
+            bookService.deleteBook(bookId,sellerId);
+            response.put("status", "sucessfull");
+            response.put("message", "Book deleted");
+
+        return ResponseEntity.ok(response);
+
+    }
 
 //    @PostMapping("/home/buy")
 //    @CrossOrigin(origins = "http://localhost:4200")
