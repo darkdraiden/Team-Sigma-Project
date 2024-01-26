@@ -44,7 +44,7 @@ export class AddBookComponent {
       .subscribe(
         (res: any) => {
           alert("book added");
-          this.router.navigate(['/']);
+          this.router.navigate(['/sellerbooks']);
         },
         (error) => {
           alert(error.message);

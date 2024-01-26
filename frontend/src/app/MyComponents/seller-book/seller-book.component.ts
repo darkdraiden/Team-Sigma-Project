@@ -1,5 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -35,6 +35,37 @@ export class SellerBookComponent implements OnInit {
 
   deleteClick()
   {
+
+    const jwtToken = localStorage.getItem('loginToken'); 
+    const email = localStorage.getItem('email');
+    if (!jwtToken) {
+      
+      alert('JWT token not found in local storage');
+      return;
+    }
+    else if(!email)
+    {
+      alert('This is not seller account');
+      return;
+    }
+    
+    // Set the JWT token in the request headers
+    const obj = {
+      bookId : this.books.bookId,
+      sellerId : this.books.sellerId
+    }
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
+    this.http.post(`http://localhost:8081/home/sell/delete`, obj ,{ headers })
+      .subscribe(
+        (res: any) => {
+          alert("book deleted");
+          this.router.navigate(['/sellerbooks']);
+        },
+        (error) => {
+          alert("cant delete this book" +error.message);
+          // this.router.navigate(['/']);
+        }
+      );
 
   }
 
