@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Book } from "../../../app/Book";
 import { NgFor } from '@angular/common';
 import { BooksItemComponent } from "../books-item/books-item.component";
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
     styleUrl: './books.component.css',
     imports: [NgFor, BooksItemComponent]
 })
-export class BooksComponent {
+export class BooksComponent implements OnInit {
   books : any
   constructor(private http :HttpClient, private router: Router)
   {
@@ -32,5 +32,6 @@ export class BooksComponent {
       this.router.navigate(['/bookitem', { bookData: JSON.stringify(book) }]);
     } else {
       console.error('Book data is undefined');
-    }  }
+    }  
+  }
 }

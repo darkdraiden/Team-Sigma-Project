@@ -35,7 +35,7 @@
           <h6 class="card-subtitle mb-2 text-body-secondary">{{book.genre}}</h6>
           <p class="card-text">{{book.bookDescription}}</p>
           <!-- Add other card content or actions as needed -->
-          <button type="submit" class="btn btn-danger" (click)="deleteClick()">Delete this book</button>
+          <button type="submit" class="btn btn-danger" (click)="deleteClick(book.bookId)">Delete this book</button>
   
         </div>
       </div>

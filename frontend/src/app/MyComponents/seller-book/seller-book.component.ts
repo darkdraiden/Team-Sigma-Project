@@ -33,7 +33,7 @@ export class SellerBookComponent implements OnInit {
   }
 
 
-  deleteClick()
+  deleteClick(bookId :any)
   {
 
     const jwtToken = localStorage.getItem('loginToken'); 
@@ -51,15 +51,21 @@ export class SellerBookComponent implements OnInit {
     
     // Set the JWT token in the request headers
     const obj = {
-      bookId : this.books.bookId,
-      sellerId : this.books.sellerId
+      bookId : bookId,
+      sellerId : email
     }
+    console.log(obj)
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
-    this.http.post(`http://localhost:8081/home/sell/delete`, obj ,{ headers })
+    this.http.delete(`http://localhost:8081/home/sell/delete`, {
+      headers: headers,
+      body: obj
+
+    })
       .subscribe(
         (res: any) => {
           alert("book deleted");
           this.router.navigate(['/sellerbooks']);
+          window.location.reload();
         },
         (error) => {
           alert("cant delete this book" +error.message);

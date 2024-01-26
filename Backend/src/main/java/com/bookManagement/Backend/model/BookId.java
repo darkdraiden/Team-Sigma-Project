@@ -11,8 +11,14 @@ import java.io.Serializable;
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
-@AllArgsConstructor
 public class BookId implements Serializable {
     private Integer bookId;
     private String sellerId;
+
+
+
+    public BookId(Integer bookId, String sellerId) {
+        this.bookId = bookId;
+        this.sellerId = sellerId;
+    }
 }
