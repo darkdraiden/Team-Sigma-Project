@@ -58,6 +58,7 @@ public class BookController {
     @PutMapping("/home/sell/update")
     public ResponseEntity<Map<String,String>> updateBook(@RequestBody Book book){
         Map<String, String> response = new HashMap<>();
+        System.out.println("dsdd");
         if(!bookService.doesExists(book.getBookId(), book.getSellerId())){
             bookService.addBook(book);
             response.put("status", "sucessfull");

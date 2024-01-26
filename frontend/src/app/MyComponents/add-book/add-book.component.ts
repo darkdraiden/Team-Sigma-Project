@@ -2,7 +2,8 @@ import { Component, NgModule } from '@angular/core';
 import { Book } from "../../Book";
 import { FormsModule,  } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
-import { error } from 'node:console';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add-book',
   standalone: true,
@@ -22,9 +23,10 @@ export class AddBookComponent {
     price : "",
     image : ""
   }
-  router: any;
-  constructor(private http :HttpClient)
+  
+  constructor(private http :HttpClient, private router: Router)
   {
+    
   }
   addBook()
   {
@@ -40,10 +42,10 @@ export class AddBookComponent {
     this.books.sellerId = localStorage.getItem('email')
     // Set the JWT token in the request headers
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
-    this.http.post(`http://localhost:8081/home/create-book`, this.books, { headers })
+    return this.http.post(`http://localhost:8081/home/create-book`, this.books, { headers })
       .subscribe(
         (res: any) => {
-          alert("book added");
+          alert(res.message);
           this.router.navigate(['/sellerbooks']);
         },
         (error) => {

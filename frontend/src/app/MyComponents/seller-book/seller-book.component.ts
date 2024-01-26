@@ -78,4 +78,10 @@ export class SellerBookComponent implements OnInit {
   navigateToAddBook() {
     this.router.navigate(['/addbook']);
   }
+  updateClick(bookId :any)
+  {
+    // const email = localStorage.getItem('email');
+      // Navigate to the 'updatebook' page with the bookId and sellerId as parameters
+      this.router.navigate(['/updatebook']);
+  }
 }

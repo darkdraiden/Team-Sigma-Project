@@ -5,6 +5,7 @@ import { BooksComponent } from './MyComponents/books/books.component';
 import { AddBookComponent } from './MyComponents/add-book/add-book.component';
 import { SellerBookComponent } from "./MyComponents/seller-book/seller-book.component";
 import { BooksItemComponent } from "./MyComponents/books-item/books-item.component";
+import { UpdateBookComponent } from "../app/MyComponents/update-book/update-book.component";
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: '', component: BooksComponent },
@@ -12,6 +13,7 @@ const appRoutes: Routes = [
     { path: 'addbook', component: AddBookComponent},
     { path: 'sellerbooks', component: SellerBookComponent},
     { path: 'bookitem', component: BooksItemComponent},
+    { path: 'updatebook', component: UpdateBookComponent},
   ];
 
 export const routes: Routes = appRoutes;
