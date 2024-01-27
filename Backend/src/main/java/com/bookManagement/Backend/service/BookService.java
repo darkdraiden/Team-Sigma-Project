@@ -39,7 +39,9 @@ public class BookService {
         return bookRepo.findAll();
     }
 
-
+        public List<Book> findAllBook(String sellerId){
+             return bookRepo.findAllBookBy(sellerId);
+        }
     public void updateBook(Book book,Book existing){
         if(book.getBookName()!="") {
             String bookName = book.getBookName();

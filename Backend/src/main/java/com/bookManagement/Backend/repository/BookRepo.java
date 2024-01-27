@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 @Repository
 public interface BookRepo extends JpaRepository<Book, BookId> {
@@ -13,5 +14,6 @@ public interface BookRepo extends JpaRepository<Book, BookId> {
 @Query("SELECT COUNT(b) > 0 FROM Book b WHERE b.bookId = :bookId AND b.sellerId = :sellerId")
     public boolean findBook(Integer bookId,String sellerId);
 
-//    public boolean findBookBy()
+@Query("select b from Book b where b.sellerId=:sellerId")
+      public List<Book> findAllBookBy(String  sellerId);
 }

@@ -75,6 +75,12 @@ public class BookController {
 
     }
 
+   @GetMapping("/home/sell/showBooksBy/{sellerId}")
+   public List<Book> getAllBooksById(@PathVariable String sellerId  ){
+       System.out.println("inside");
+          return bookService.findAllBook(sellerId);
+   }
+
 
     @DeleteMapping("/home/sell/delete")
     public ResponseEntity<Map<String,String>> deleteBook(@RequestBody Map<String ,String> req){
