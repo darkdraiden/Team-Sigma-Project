@@ -1,13 +1,13 @@
 .custom-navbar {
-    background-color: #5CDB95;
+    background-color: #6962AD;
   }
   .navbar-nav .nav-link {
-    color: #05386B;
+    color: #83C0C1;
   }
   .custom-navbar .navbar-brand {
-    color: #05386B; /* Color for the navbar brand */
+    color: #83C0C1; /* Color for the navbar brand */
   }
 
   body {
-    background-color: #5CDB95; /* Set your desired background color */
+    background-color: #C2CAD0; /* Set your desired background color */
   }

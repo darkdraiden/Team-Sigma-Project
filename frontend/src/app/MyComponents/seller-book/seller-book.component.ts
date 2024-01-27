@@ -22,11 +22,13 @@ export class SellerBookComponent implements OnInit {
   {
     if (typeof window !== 'undefined' && window.localStorage)
     this.id = localStorage.getItem("email")
-    if (this.id !== null) {
+    if (this.id !== null && this.id) {
       let response = this.http.get('http://localhost:8081/books');
       console.log('on seller books');
 
       response.subscribe((data) => {
+        console.log('Received data:', data);
+
         this.books = data;
       });
     } 

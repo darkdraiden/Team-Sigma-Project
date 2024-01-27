@@ -26,5 +26,6 @@ export class AppComponent {
   logout()
   {
     localStorage.removeItem('loginToken');
+    localStorage.removeItem('email');
   }
 }
