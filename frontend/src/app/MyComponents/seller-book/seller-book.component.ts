@@ -13,17 +13,31 @@ import { Router } from '@angular/router';
 export class SellerBookComponent implements OnInit {
   books : any
   id: string  | null = null;
+  jwtToken: string  | null = null;
   constructor(private http :HttpClient ,private router: Router)
   {
     
   }
+  sellerId :any
 
   ngOnInit()
   {
+    // if(localStorage)
+    // this.sellerId = localStorage.getItem('email')
+    
     if (typeof window !== 'undefined' && window.localStorage)
     this.id = localStorage.getItem("email")
+    if (typeof window !== 'undefined' && window.localStorage)
+    this.jwtToken = localStorage.getItem('loginToken'); // Replace with your actual key
+    if (!this.jwtToken) {
+      // Handle the case when the token is not available
+      alert('JWT token not found in local storage');
+      return;
+    }
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${this.jwtToken}`);
+
     if (this.id !== null && this.id) {
-      let response = this.http.get('http://localhost:8081/books');
+      let response = this.http.get(`http://localhost:8081/home/sell/showBooksBy/${this.id}`,{ headers });
       console.log('on seller books');
 
       response.subscribe((data) => {

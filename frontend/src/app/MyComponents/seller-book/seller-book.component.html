@@ -5,14 +5,14 @@
       <h1 class="custom-bg">Your Stock!</h1>
       
       
-      <button (click)="navigateToAddBook()" class="btn btn-success">AddBook</button>
+      <button (click)="navigateToAddBook()" class="btn btn-success my-4">AddBook</button>
       
       
       <!-- <a class="nav-link" href="/addbook">AddBook</a> -->
       
       <div class="row justify-content-center">
         <div *ngFor="let book of books" class="col-md-3 mb-3" >
-          <div class="card" *ngIf="book.sellerId == id">
+          <div class="card" >
             <div class="card-body">
               <img src="{{book.image}}" class="card-img-top custom-image" alt="...">
               <h4 class="card-title">{{book.bookName}}</h4>
