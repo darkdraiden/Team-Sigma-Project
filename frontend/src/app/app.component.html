@@ -1,0 +1,46 @@
+<body class="background">
+  
+  
+  <div class="background">
+    <nav class="navbar navbar-expand-lg custom-navbar" >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BookApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <!-- <ng-container *ngIf="!isTokenExist(); ">
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+            </ng-container> -->
+            <ng-container *ngIf="isTokenExist();">
+              <li class="nav-item">
+                <a class="nav-link" href="/sellerbooks">Sell Books</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#" (click)="logout()">Logout</a>
+              </li> -->
+            </ng-container>
+          </ul>
+          <!-- Rightmost position -->
+          <ul class="navbar-nav ml-auto" *ngIf="!isTokenExist();">
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto" *ngIf="isTokenExist();">
+            <li class="nav-item">
+              <a class="nav-link" href="/" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+</body>

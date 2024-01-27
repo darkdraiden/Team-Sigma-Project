@@ -1,0 +1,31 @@
+
+  <body class="background ">
+    
+    <div  class="background d-flex align-items-center justify-content-center flex-column ">
+      <h1 class="custom-bg">Your Stock!</h1>
+      
+      
+      <button (click)="navigateToAddBook()" class="btn btn-success">AddBook</button>
+      
+      
+      <!-- <a class="nav-link" href="/addbook">AddBook</a> -->
+      
+      <div class="row justify-content-center">
+        <div *ngFor="let book of books" class="col-md-3 mb-3" >
+          <div class="card" *ngIf="book.sellerId == id">
+            <div class="card-body">
+              <img src="{{book.image}}" class="card-img-top custom-image" alt="...">
+              <h4 class="card-title">{{book.bookName}}</h4>
+              <h5 class="card-subtitle mb-2 text-body-secondary">{{book.author}}</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">{{book.genre}}</h6>
+              <p class="card-text">{{book.bookDescription}}</p>
+              <button type="submit" class="btn btn-danger" (click)="deleteClick(book.bookId)">Delete this book</button>
+              <button type="submit" class="btn btn-primary" (click)="updateClick(book.bookId)">Update book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </body>
