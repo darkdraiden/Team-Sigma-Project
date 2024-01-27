@@ -1,7 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -74,7 +74,7 @@ export class SellerBookComponent implements OnInit {
       bookId : bookId,
       sellerId : email
     }
-    console.log(obj)
+    // console.log(obj)
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
     this.http.delete(`http://localhost:8081/home/sell/delete`, {
       headers: headers,
@@ -106,6 +106,18 @@ export class SellerBookComponent implements OnInit {
   {
     // const email = localStorage.getItem('email');
       // Navigate to the 'updatebook' page with the bookId and sellerId as parameters
-      this.router.navigate(['/updatebook']);
+      // const navigationExtras: NavigationExtras = {
+      //   queryParams: {
+      //     bookId: bookId
+      //   }
+      // };
+      const navigationExtras: NavigationExtras = {
+        queryParams: {
+          bookId: bookId
+        }
+      };
+      // console.log(navigationExtras.queryParams[bookId] +"sadas")
+      this.router.navigate(['/updatebook'], navigationExtras);
+      
   }
 }

@@ -16,15 +16,18 @@ export class UpdateBookComponent {
   
   // bookId  :any
   // sellerId : any
+  bookIdcome :any
 
   constructor(private route: ActivatedRoute ,private router: Router, private http :HttpClient) {
     // Retrieve the 'bookId' and 'sellerId' parameters from the route
-    this.route.params.subscribe(params => {
-      // this.bookId = params['bookId'];
-      // this.sellerId = params['sellerId'];
-      // Now 'bookId' and 'sellerId' contain the values passed from the previous page
+    this.route.queryParams.subscribe(params => {
+      this.bookIdcome = params['bookId'];
+      // Now you can use the bookId in this component
+      console.log(this.bookIdcome + " 12121dsfsfdsf");
     });
+    this.books.bookId = this.bookIdcome
   }
+  
   books : any = {
     bookId : "",
     sellerId : "",
@@ -37,6 +40,8 @@ export class UpdateBookComponent {
     image : ""
   }
   toster = inject(ToastrService)
+
+  
 
   updateBook()
   {
@@ -53,7 +58,7 @@ export class UpdateBookComponent {
     this.books.sellerId = localStorage.getItem('email')
     // Set the JWT token in the request headers
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
-    console.log(headers)
+    // console.log(book.bookId +"d1212121asddad")
     
     console.log("aupdate", this.books )
      return this.http.put(`http://localhost:8081/home/sell/update`, this.books, { headers })
