@@ -5,17 +5,19 @@
 }
 
 .custom-navbar .navbar-brand g{
-  color: #6C22A6; /* Color for the navbar brand */
+  color: #950740; /* Color for the navbar brand */
 }
 .custom-bg {
-  color: #6C22A6; /* Set your desired font color */
+  color: #f6f1f3; 
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* Set your desired font color */
 }
 
 body {
-  background-color: #96E9C6;
+  background-color: #1a1a1d;
 }
 .background {
-  background-color: #96E9C6;
+  background-color: #1a1a1d;
 }
 /* .custom-background {
   background-color: #5CDB95; 
