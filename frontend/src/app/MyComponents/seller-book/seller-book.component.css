@@ -1,3 +1,4 @@
+/* your.component.scss */
 body, html {
   height: 100%;
   margin: 0;
@@ -16,18 +17,12 @@ body {
   color: #05386B;
 }
 
+
+
 .custom-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
-}
-
-.custom-navbar .navbar-brand g {
-  color: #05386B;
-}
-
-.card {
-  position: relative;
 }
 
 .card .btn-success {
@@ -40,4 +35,19 @@ body {
 
 .card:hover .btn-success {
   display: block;
+}
+
+.cardHeight {
+  height: 400px; /* Set a fixed height for each card */
+}
+
+
+.card {
+  position: relative;
+  height: 400px; /* Set a fixed height for each card */
+}
+
+.card-body {
+  height: 100%; /* Set a fixed height for the card body */
+  overflow: hidden; /* Hide overflow content if it exceeds the height */
 }
