@@ -1,8 +1,9 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, inject } from '@angular/core';
 import { Book } from "../../Book";
 import { FormsModule,  } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-book',
@@ -28,6 +29,8 @@ export class AddBookComponent {
   {
     
   }
+  toster = inject(ToastrService)
+
   addBook()
   {
     console.log("add book")
@@ -36,7 +39,8 @@ export class AddBookComponent {
     const jwtToken = localStorage.getItem('loginToken'); // Replace with your actual key
     if (!jwtToken) {
       // Handle the case when the token is not available
-      alert('JWT token not found in local storage');
+      this.toster.error("JWT token not found in local storage","Error")
+      // alert('JWT token not found in local storage');
       return;
     }
     this.books.sellerId = localStorage.getItem('email')
@@ -45,11 +49,12 @@ export class AddBookComponent {
     return this.http.post(`http://localhost:8081/home/create-book`, this.books, { headers })
       .subscribe(
         (res: any) => {
-          alert(res.message);
+          this.toster.success("Book Added!", "Success")
           this.router.navigate(['/sellerbooks']);
         },
         (error) => {
-          alert(error.message);
+          this.toster.error("Invalid credentials","Error")
+
           // this.router.navigate(['/']);
         }
       );

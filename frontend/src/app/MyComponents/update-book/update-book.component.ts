@@ -1,8 +1,9 @@
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-book',
@@ -35,6 +36,8 @@ export class UpdateBookComponent {
     price : "",
     image : ""
   }
+  toster = inject(ToastrService)
+
   updateBook()
   {
     console.log("update book")
@@ -42,7 +45,9 @@ export class UpdateBookComponent {
     const jwtToken = localStorage.getItem('loginToken'); // Replace with your actual key
     if (!jwtToken) {
       // Handle the case when the token is not available
-      alert('JWT token not found in local storage');
+      this.toster.error("JWT token not found in local storage","Error")
+
+      // alert('JWT token not found in local storage');
       return;
     }
     this.books.sellerId = localStorage.getItem('email')
@@ -55,11 +60,13 @@ export class UpdateBookComponent {
       .subscribe(
         (res: any) => {
 
-          alert( res.message);
+          this.toster.success("Book updated!", "Success")
           this.router.navigate(['/sellerbooks']);
         },
         (error: any) => {
           alert(error);
+          this.toster.error("error","Error")
+
           // this.router.navigate(['/']);
         }
       );

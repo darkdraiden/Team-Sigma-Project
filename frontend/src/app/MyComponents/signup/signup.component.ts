@@ -1,8 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -24,6 +25,8 @@ export class SignupComponent {
     password : '',
     name: ''
   }
+  toster = inject(ToastrService)
+
   
   signupClick( )
   {
@@ -43,17 +46,23 @@ export class SignupComponent {
       (data:any) =>{
         if (data.status === 'User created') {
           console.log(data, "signup from backend");
-          alert("User created successfully");
+          this.toster.success("User created successfully!", "Success")
+
+          // alert("User created successfully");
           this.router.navigate(['/']);
         } else {
           console.error("Error from backend:", data.message);
-          alert("User already exists " + data.message);
+          this.toster.error("User already exists","Error")
+
+          // alert("User already exists " + data.message);
         }
       },
       (error) =>
       {
         console.log("error form backend", error)
-        alert("somethign went wrong"+ error)
+        this.toster.error("somethign went wrong","Error")
+
+        // alert("somethign went wrong"+ error)
       }
     )
 

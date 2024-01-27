@@ -1,9 +1,10 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, inject } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import baseurl from '../../services/helper';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent  {
   [x: string]: any;
   // http: any;
+  toster = inject(ToastrService)
   constructor(private http :HttpClient, private router: Router)
   {
       
@@ -31,7 +33,9 @@ export class LoginComponent  {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(this.user.username)) {
-      alert("Invalid email format");
+      this.toster.error("Invalid email format","Error")
+
+      // alert("Invalid email format");
       return;
     }
 
@@ -39,23 +43,25 @@ export class LoginComponent  {
       (res: any) => {
         console.log(res.token);
         if (res.token) {
-          alert("Login success");
+          this.toster.success("Login success!", "Success")
           
           localStorage.setItem('loginToken', res.token);
           localStorage.setItem('email', res.username);
           this.router.navigate(['/']);
           // Redirect or perform other actions on successful login
         } else {
-          alert("Something went wrong, token not generated" );
+          this.toster.error("login failed","Error")
           
         }
       },
       (error) => {
         // Handle errors here
         if (error.status === 401) {
-          alert("Invalid username or password"+ error);
+          this.toster.error("Login failed, Invalid username or password","Error")
+          // alert("Invalid username or password"+ error);
         } else {
-          alert("Something went wrong"+ error);
+          this.toster.error("Something went wrong","Error")
+
         }
       }
     );
