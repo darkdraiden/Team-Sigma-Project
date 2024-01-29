@@ -41,27 +41,31 @@ export class BooksItemComponent {
       // alert('JWT token not found in local storage');
       return;
     }
+    console.log(book);
 
     const obj = {
-      books : book,
+      bookId : book.bookId,
+      sellerId : book.sellerId,
       buyerId : email
     }
-    // console.log(obj)
+    console.log(obj)
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
-    this.http.delete(`http://localhost:8081/home/sell/delete`, {
-      headers: headers,
-      body: obj
+    // this.http.post(`http://localhost:8081/home/buy`, {
+    //   headers: headers,
+    //   body: obj
+      
+    // })
+    this.http.post(`http://localhost:8081/home/buy`, obj, { headers: headers })
 
-    })
       .subscribe(
         (res: any) => {
           this.toster.success("Book ordered", "Success")
 
-          window.location.reload();
+          // window.location.reload();
         },
         (error) => {
           console.log(error)
-          this.toster.error("Cant order this","Error")
+          this.toster.error("Cant order this"+error,"Error")
 
         }
       );

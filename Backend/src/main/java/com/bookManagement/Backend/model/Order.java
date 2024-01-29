@@ -1,9 +1,6 @@
 package com.bookManagement.Backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,12 +11,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
+@Table(name="Orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer orderId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer orderId;
     Integer bookId;
-    String emailId;
+    String buyerId;
 //    String name;
     String sellerId;
+
+    public Order(Integer bookId, String buyerId, String sellerId) {
+        this.bookId = bookId;
+        this.buyerId = buyerId;
+        this.sellerId = sellerId;
+    }
 }
