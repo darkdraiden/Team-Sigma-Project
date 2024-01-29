@@ -3,16 +3,16 @@
   color: #950740; /* Color for the navbar brand */
 }
 .custom-bg {
-  color: #ffa732; 
+  color: #FF9BD2; 
   font-family: Georgia, 'Times New Roman', Times, serif;
   /* Set your desired font color */
 }
 
 body {
-  background-color: #ffa732;
+  background-color: #FF9BD2; 
 }
 .background {
-  background-color: #ffa732;
+  background-color: #FF9BD2;
 }
 /* .custom-background {
   background-color: #5CDB95; 
@@ -28,14 +28,15 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 body {
-  background-color: #FFA732;
+  background-color: #E9F6FF;
 }
 
 .background {
-  background-color: #FFA732;
+  background-color: #E9F6FF;
 }
 
 .custom-bg {
@@ -63,9 +64,13 @@ body {
 .card {
   position: relative;
   height: 500px; /* Set a fixed height for each card */
+  
+
 }
 
 .card-body {
   height: calc(100% - 300px); /* Set a fixed height for the remaining card body */
   overflow: hidden; /* Hide overflow content if it exceeds the height */
+  /* color: #FF9BD2;  */
 }
+ 

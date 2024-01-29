@@ -1,10 +1,10 @@
 .background {
-  background-color: #FFA732;
+  background-color: #E9F6FF;
   padding: 10px;
 }
 
 body {
-  background-color: #FFA732;
+  background-color: #E9F6FF;
 }
 
 .card {
@@ -19,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .card-img-top {

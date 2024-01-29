@@ -6,7 +6,7 @@ margin: 0;
 box-sizing: border-box;
 }
 body{
-background-color: #FFA732;
+background-color: #E9F6FF;
 font-family: 'Times New Roman', Times, serif;
 }
 .background{
@@ -80,7 +80,7 @@ input{
 display: block;
 height: 50px;
 width: 100%;
-background-color: #711DB0;
+background-color: #280274;
 border-radius: 3px;
 padding: 0 10px;
 margin-top: 8px;
@@ -112,7 +112,7 @@ width: 150px;
 border-radius: 3px;
 padding: 5px 10px 10px 5px;
 background-color: #950740;
-color: #EAF0FB;
+color: #950740;
 text-align: center;
 }
 .social div:hover{

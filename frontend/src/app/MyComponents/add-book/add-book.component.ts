@@ -40,7 +40,7 @@ export class AddBookComponent {
     const jwtToken = localStorage.getItem('loginToken'); // Replace with your actual key
     if (!jwtToken) {
       // Handle the case when the token is not available
-      this.toster.error("JWT token not found in local storage","Error")
+      this.toster.error("Login Again","Error")
       // alert('JWT token not found in local storage');
       return;
     }
@@ -54,7 +54,7 @@ export class AddBookComponent {
           this.router.navigate(['/sellerbooks']);
         },
         (error) => {
-          this.toster.error("Invalid credentials","Error")
+          this.toster.error("Data Missing","Error")
 
           // this.router.navigate(['/']);
         }

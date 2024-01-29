@@ -36,7 +36,7 @@ export class SignupComponent {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(this.user.username)) {
-      alert("Invalid email format");
+      this.toster.error("Invalid email format","Error")
       
       return;
     }
@@ -50,7 +50,10 @@ export class SignupComponent {
 
           // alert("User created successfully");
           this.router.navigate(['/']);
-        } else {
+        }
+        else if (this.user.name=="")
+        this.toster.error("Data missing","Error")
+        else {
           console.error("Error from backend:", data.message);
           this.toster.error("User already exists","Error")
 
