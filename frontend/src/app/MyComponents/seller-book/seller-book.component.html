@@ -1,28 +1,22 @@
 <!-- your.component.html -->
-<body class="background">
-
-  <div class="container">
-    <h1 class="custom-bg">Your Stock!</h1>
-  
-    <button (click)="navigateToAddBook()" class="btn btn-success align-items-center justify-content-center my-3">Add Book</button>
-  
-    <div class="row">
-      <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let book of books">
-        <div class="card mb-4" style="width: 18rem;">
-          <img src="{{book.image}}"  class="card-img-top custom-image" alt="Book Image">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ book.bookName }}</h5>
-            <p class="card-text">{{ book.bookDescription }}</p>
-            <p class="card-text">{{ book.author }}</p>
-            <p class="card-text">{{ book.price }}</p>
-            <div class="mt-auto text-center">
-              <button type="button" class="btn btn-danger mx-2" (click)="deleteClick(book.bookId)">Delete</button>
-              <button type="button" class="btn btn-primary ml-2 mx-2" (click)="updateClick(book.bookId)">Update</button>
-            </div>
+<div class="container">
+  <h1 class="custom-bg text-center mt-4 mb-5">Your Stock!</h1>
+  <button (click)="navigateToAddBook()" class="btn btn-success mx-auto mb-3 d-block">Add Book</button>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-3" *ngFor="let book of books">
+      <div class="card mb-4">
+        <img src="{{book.image}}" class="card-img-top custom-image img-fluid" alt="Book Image">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ book.bookName }}</h5>
+          <p class="card-text">{{ book.bookDescription }}</p>
+          <p class="card-text">{{ book.author }}</p>
+          <p class="card-text">{{ book.price }}</p>
+          <div class="mt-auto text-center">
+            <button type="button" class="btn btn-danger mx-2 my-2" (click)="deleteClick(book.bookId)">Delete</button>
+            <button type="button" class="btn btn-primary mx-2 my-2" (click)="updateClick(book.bookId)">Update</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </body>
-  
+</div>
