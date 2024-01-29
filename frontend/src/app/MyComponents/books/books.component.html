@@ -1,8 +1,10 @@
 <!-- your.component.html -->
 <body class="background">
 
+    <app-carousel></app-carousel>
   <div class="container">
     <h1 class="custom-bg text-center mt-4 mb-5"></h1>
+
   
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" *ngFor="let book of books">
@@ -12,7 +14,7 @@
             <h5 class="card-title">{{ book.bookName }}</h5>
             <p class="card-text">{{ book.bookDescription }}</p>
             <p class="card-text">{{ book.author }}</p>
-            <p class="card-text">{{ book.price }}</p>
+            <p class="card-text"> {{ book.price }}</p>
             <div class="mt-auto text-center">
               <button type="submit" class="btn btn-success">Buy Now</button>
             </div>

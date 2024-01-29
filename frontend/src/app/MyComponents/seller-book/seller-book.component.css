@@ -1,8 +1,8 @@
 /* your.component.scss */
 body, html {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
 }
 
 body {
@@ -28,7 +28,7 @@ body {
 }
 
 .card-body {
-  height: calc(100% - 200px); /* Adjust the remaining height */
+   /* Adjust the remaining height */
   overflow: hidden;
 }
 
