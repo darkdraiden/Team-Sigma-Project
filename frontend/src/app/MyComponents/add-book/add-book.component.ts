@@ -27,7 +27,8 @@ export class AddBookComponent {
   
   constructor(private http :HttpClient, private router: Router)
   {
-    
+    if(!localStorage || !localStorage.getItem('email'))
+    this.router.navigate(['/login']);
   }
   toster = inject(ToastrService)
 

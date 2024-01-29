@@ -17,15 +17,35 @@ export class UpdateBookComponent {
   // bookId  :any
   // sellerId : any
   bookIdcome :any
+  id: string  | null = null;
+  jwtToken: string | null | undefined;
+
+  bookName : any
+  bookDesc :  any
+  bookG : any
+  bookA : any
+  bookQ : any
+  bookP : any
+  bookI : any
 
   constructor(private route: ActivatedRoute ,private router: Router, private http :HttpClient) {
     // Retrieve the 'bookId' and 'sellerId' parameters from the route
     this.route.queryParams.subscribe(params => {
       this.bookIdcome = params['bookId'];
+      this.bookName = params['bookName'];
+      this.bookDesc = params['bookDesc'];
+      this.bookG = params['bookG'];
+      this.bookQ = params['bookQ'];
+      this.bookP = params['bookP'];
+      this.bookI = params['bookI'];
+      this.bookA = params['bookA'];
       // Now you can use the bookId in this component
-      console.log(this.bookIdcome + " 12121dsfsfdsf");
+      console.log(this.bookName + this.bookA + " 12121dsfsfdsf");
     });
     this.books.bookId = this.bookIdcome
+
+
+
   }
   
   books : any = {
@@ -41,7 +61,6 @@ export class UpdateBookComponent {
   }
   toster = inject(ToastrService)
 
-  
 
   updateBook()
   {

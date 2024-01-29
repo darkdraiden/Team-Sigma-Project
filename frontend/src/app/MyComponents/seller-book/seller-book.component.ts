@@ -111,12 +111,23 @@ export class SellerBookComponent implements OnInit {
       //     bookId: bookId
       //   }
       // };
+
+      const foundBook = this.books.find((book: any) => book.bookId === bookId);
+
       const navigationExtras: NavigationExtras = {
         queryParams: {
-          bookId: bookId
+          bookId: bookId,
+          bookName : foundBook.bookName,
+          bookDesc : foundBook.bookDescription,
+          bookG : foundBook.genre,
+          bookA : foundBook.author,
+          bookQ : foundBook.quantity,
+          bookP : foundBook.price,
+          bookI : foundBook.image
+          
         }
       };
-      // console.log(navigationExtras.queryParams[bookId] +"sadas")
+      // console.log( foundBook. +"sadas")
       this.router.navigate(['/updatebook'], navigationExtras);
       
   }

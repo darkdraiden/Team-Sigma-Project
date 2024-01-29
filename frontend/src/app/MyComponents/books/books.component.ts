@@ -16,7 +16,8 @@ export class BooksComponent implements OnInit {
   books : any
   constructor(private http :HttpClient, private router: Router)
   {
-    
+    // if(!localStorage.getItem('email'))
+    // this.router.navigate(['/login']);
   }
 
   ngOnInit()
