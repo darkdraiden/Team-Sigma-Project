@@ -6,7 +6,7 @@ margin: 0;
 box-sizing: border-box;
 }
 body{
-background-color: #080710;
+background-color: #FFA732;
 font-family: 'Times New Roman', Times, serif;
 }
 .background{
@@ -57,13 +57,14 @@ padding: 50px 35px;
 }
 form *{
 font-family:'Times New Roman', Times, serif;
-color: #FFFFFF;
+
 letter-spacing: 0.5px;
 outline: none;
 border: none;
 }
 form h3{
 font-size: 32px;
+color: #950740;
 font-weight: 500;
 line-height: 42px;
 text-align: center;
@@ -71,6 +72,7 @@ text-align: center;
 label{
 display: block;
 margin-top: 30px;
+color: #950740;
 font-size: 20px;
 font-weight: 500;
 }
@@ -78,11 +80,12 @@ input{
 display: block;
 height: 50px;
 width: 100%;
-background-color: #950740;
+background-color: #711DB0;
 border-radius: 3px;
 padding: 0 10px;
 margin-top: 8px;
 font-size: 14px;
+color: #E5E5E5;
 font-weight: 300;
 }
 ::placeholder{
