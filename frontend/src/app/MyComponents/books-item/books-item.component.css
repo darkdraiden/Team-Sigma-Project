@@ -1,7 +1,11 @@
 .background {
-    background-color: #5CDB95; /* Set the background color for the entire page */
+    background-color: #FFA732; /* Set the background color for the entire page */
     padding: 20px; /* Add padding for spacing */
   }
+  body {
+    background-color: #FFA732;
+  }
+  
   
   .card {
     max-width: 400px; /* Set the maximum width of the card */
