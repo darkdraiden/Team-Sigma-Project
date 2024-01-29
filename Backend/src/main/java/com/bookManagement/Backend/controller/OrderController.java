@@ -7,12 +7,10 @@ import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -51,5 +49,13 @@ public class OrderController {
          response.put("status", "Success");
          response.put("message", "Order successful");
          return ResponseEntity.ok(response);
+     }
+
+
+     @GetMapping("home/myStock/{buyerId}")
+     @CrossOrigin(origins = "http://localhost:4200")
+    public List<Book> myStock(@PathVariable String buyerId){
+         System.out.println("my stock");
+            return orderService.getAllBooks(buyerId);
      }
 }
