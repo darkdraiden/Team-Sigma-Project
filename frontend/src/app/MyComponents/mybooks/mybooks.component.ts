@@ -29,16 +29,14 @@ export class MybooksComponent {
     // if (typeof window !== 'undefined' && window.localStorage)
     this.jwtToken = localStorage.getItem('loginToken'); // Replace with your actual key
     if (!this.jwtToken) {
-      // Handle the case when the token is not available
-      // this.toster.error("Login First","Error")
-      // alert('JWT token not found in local storage');
+
       return;
     }
     console.log(this.id)
   const headers = new HttpHeaders().set('Authorization', `Bearer ${this.jwtToken}`);
     if (this.id !== null && this.id) {
       let response = this.http.get(`http://localhost:8081/home/myStock/${this.id}`,{ headers });
-      console.log('on my purchasae');
+      console.log('on my purchasae', response);
       response.subscribe((data) => {
         console.log('Received data:', data);
         this.books = data;
