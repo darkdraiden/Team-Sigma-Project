@@ -96,11 +96,20 @@ public class BookController {
 
     }
 
+
 //    @PostMapping("/home/buy")
 //    @CrossOrigin(origins = "http://localhost:4200")
 //    public ResponseEntity<Map<String,String>> buyBook(@RequestBody Object obj){
 //
 //    }
+
+
+    @PostMapping("/home/sell/findBook/")
+    public Optional<Book> getAllBooksById( @RequestBody Map<String ,String> req ){
+        int bookId=Integer.parseInt(req.get("bookId"));
+        String sellerId=req.get("sellerId");
+        return bookService.findBook(bookId,sellerId);
+    }
 
 
 }
