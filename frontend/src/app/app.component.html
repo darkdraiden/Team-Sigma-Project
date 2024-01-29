@@ -27,11 +27,24 @@
               <a class="nav-link" href="#" (click)="logout()">Logout</a>
             </li> -->
           </ng-container>
+          <ng-container *ngIf="isTokenExist();">
+            <li class="nav-item">
+              <a class="nav-link" href="/mypurchase">My Purchase</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#" (click)="logout()">Logout</a>
+            </li> -->
+          </ng-container>
         </ul>
         <!-- Rightmost position -->
         <ul class="navbar-nav ml-auto" *ngIf="!isTokenExist();">
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="!isTokenExist();">
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Signup</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto" *ngIf="isTokenExist();">

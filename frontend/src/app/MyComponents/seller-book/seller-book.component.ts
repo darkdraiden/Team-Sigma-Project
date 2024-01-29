@@ -64,8 +64,6 @@ export class SellerBookComponent implements OnInit {
     else if(!email)
     {
       this.toster.error("This is not seller account","Error")
-
-      // alert('This is not seller account');
       return;
     }
     
@@ -86,7 +84,7 @@ export class SellerBookComponent implements OnInit {
           this.toster.success("Book deleted", "Success")
 
           // alert("book deleted");
-          this.router.navigate(['/sellerbooks']);
+          // this.router.navigate(['/sellerbooks']);
           window.location.reload();
         },
         (error) => {
@@ -102,6 +100,18 @@ export class SellerBookComponent implements OnInit {
   navigateToAddBook() {
     this.router.navigate(['/addbook']);
   }
+
+  buyClick(book: any) {
+    console.log('buy click');
+    // Navigate to 'bookitem' page and pass the book data as a parameter
+    if (book) {
+      // Navigate to 'bookitem' page and pass the book data as a parameter
+      this.router.navigate(['/bookitem', { bookData: JSON.stringify(book) }]);
+    } else {
+      console.error('Book data is undefined');
+    }  
+  }
+  
   updateClick(bookId :any)
   {
     // const email = localStorage.getItem('email');

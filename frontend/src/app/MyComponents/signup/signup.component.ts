@@ -36,7 +36,8 @@ export class SignupComponent {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(this.user.username)) {
-      alert("Invalid email format");
+      // alert("Invalid email format");
+      this.toster.error("Invalid email format","Error")
       
       return;
     }
