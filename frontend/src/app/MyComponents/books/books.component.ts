@@ -31,7 +31,9 @@ export class BooksComponent implements OnInit {
     // Navigate to 'bookitem' page and pass the book data as a parameter
     if (book) {
       // Navigate to 'bookitem' page and pass the book data as a parameter
-      this.router.navigate(['/bookitem', { bookData: JSON.stringify(book) }]);
+      this.router.navigate(['/bookitem' , { bookData: JSON.stringify(book) }], {
+        skipLocationChange: true,
+      });
     } else {
       console.error('Book data is undefined');
     }  

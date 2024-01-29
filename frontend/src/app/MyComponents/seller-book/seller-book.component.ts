@@ -106,21 +106,19 @@ export class SellerBookComponent implements OnInit {
     // Navigate to 'bookitem' page and pass the book data as a parameter
     if (book) {
       // Navigate to 'bookitem' page and pass the book data as a parameter
-      this.router.navigate(['/bookitem', { bookData: JSON.stringify(book) }]);
+      this.router.navigate(['/bookitem', { bookData: JSON.stringify(book) }]
+      ,
+      {
+        skipLocationChange: true,
+      }
+      );
     } else {
       console.error('Book data is undefined');
     }  
   }
-  
+
   updateClick(bookId :any)
   {
-    // const email = localStorage.getItem('email');
-      // Navigate to the 'updatebook' page with the bookId and sellerId as parameters
-      // const navigationExtras: NavigationExtras = {
-      //   queryParams: {
-      //     bookId: bookId
-      //   }
-      // };
 
       const foundBook = this.books.find((book: any) => book.bookId === bookId);
 
@@ -138,7 +136,8 @@ export class SellerBookComponent implements OnInit {
         }
       };
       // console.log( foundBook. +"sadas")
-      this.router.navigate(['/updatebook'], navigationExtras);
+      this.router.navigate(['/updatebook'], navigationExtras,
+      );
       
   }
 }

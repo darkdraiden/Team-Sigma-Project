@@ -50,15 +50,11 @@ export class BooksItemComponent {
     }
     console.log(obj)
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
-    // this.http.post(`http://localhost:8081/home/buy`, {
-    //   headers: headers,
-    //   body: obj
-      
-    // })
+
     this.http.post(`http://localhost:8081/home/buy`, obj, { headers: headers })
 
       .subscribe(
-        (res: any) => {
+        (res: any) =>   {
           this.toster.success("Book ordered", "Success")
 
           // window.location.reload();

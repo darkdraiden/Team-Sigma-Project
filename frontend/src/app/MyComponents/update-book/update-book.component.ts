@@ -31,15 +31,15 @@ export class UpdateBookComponent {
   constructor(private route: ActivatedRoute ,private router: Router, private http :HttpClient) {
     // Retrieve the 'bookId' and 'sellerId' parameters from the route
     this.route.queryParams.subscribe(params => {
-      this.bookIdcome = params['bookId'];
-      this.bookName = params['bookName'];
-      this.bookDesc = params['bookDesc'];
-      this.bookG = params['bookG'];
-      this.bookQ = params['bookQ'];
-      this.bookP = params['bookP'];
-      this.bookI = params['bookI'];
-      this.bookA = params['bookA'];
-      // Now you can use the bookId in this component
+    this.bookIdcome = params['bookId'];
+    this.bookName = params['bookName'];
+    this.bookDesc = params['bookDesc'];
+    this.bookG = params['bookG'];
+    this.bookQ = params['bookQ'];
+    this.bookP = params['bookP'];
+    this.bookI = params['bookI'];
+    this.bookA = params['bookA'];
+      
       console.log(this.bookName + this.bookA + " 12121dsfsfdsf");
     });
     this.books.bookId = this.bookIdcome
@@ -85,7 +85,10 @@ export class UpdateBookComponent {
         (res: any) => {
 
           this.toster.success("Book updated!", "Success")
-          this.router.navigate(['/sellerbooks']);
+          this.router.navigate(['/sellerbooks'],
+          {
+            skipLocationChange: true,
+          });
         },
         (error: any) => {
           alert(error);
