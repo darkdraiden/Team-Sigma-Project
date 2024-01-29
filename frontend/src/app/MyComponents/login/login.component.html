@@ -15,11 +15,11 @@
         <button type="submit" class="btn btn-primary" >Login</button>
       </form>
 </div> -->
-<body>
+<!-- <body>
   <div class="background">
-      <!-- <div class="shape"></div>
+       <div class="shape"></div>
       <div class="shape"></div> -->
-  </div>
+  <!-- </div>
   <form (ngSubmit)="loginClick()">
       <h3>Login Here</h3>
       <label for="username">Email</label>
@@ -31,4 +31,29 @@
       </li>
       <button type="submit" class="btn btn-primary" >Log In</button>
   </form>
+</body> --> 
+
+
+
+
+
+<body>
+  <div class="background"></div>
+  <div class="login-container">
+    <form (ngSubmit)="loginClick()" class="login-form">
+      <h3>Login Here</h3>
+      <label for="username">Email</label>
+      <input type="email" placeholder="Email" name="username" id="username" [(ngModel)]="user.username" id="username">
+      <label for="password">Password</label>
+      <input type="password" placeholder="Password" name="password" id="password" [(ngModel)]="user.password">
+      <li>
+        <a class="link-primary" href="/signup">Signup</a>
+      </li>
+      <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+  </div>
 </body>
+
+
+
+
