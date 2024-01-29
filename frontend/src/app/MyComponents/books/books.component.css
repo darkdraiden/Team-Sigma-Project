@@ -3,16 +3,16 @@
   color: #950740; /* Color for the navbar brand */
 }
 .custom-bg {
-  color: #f6f1f3; 
+  color: #ffa732; 
   font-family: Georgia, 'Times New Roman', Times, serif;
   /* Set your desired font color */
 }
 
 body {
-  background-color: #1a1a1d;
+  background-color: #ffa732;
 }
 .background {
-  background-color: #1a1a1d;
+  background-color: #ffa732;
 }
 /* .custom-background {
   background-color: #5CDB95; 

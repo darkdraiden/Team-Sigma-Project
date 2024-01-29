@@ -1,38 +1,42 @@
-<div class="my-5 mx-5 ">
-  <form (ngSubmit)="addBook()">
-   <div class="form-group">
-     <label for="exampleInputEmail1">Book Title</label>
-     <input  class="form-control" type="text" placeholder="Title " name ="title" id ="title"  [(ngModel)]="books.bookName">
-   </div>
-   <div class="form-group">
-     <label for="exampleInputEmail1">Author</label>
-     <input  class="form-control" type="text" placeholder="Author " name ="author" id ="author"  [(ngModel)]="books.author" id="author">
-   </div>
-   <div class="form-group">
-     <label for="exampleInputEmail1">Book Id</label>
-     <input  class="form-control" type="text" placeholder="book Id " name ="bookId" id ="bookId"  [(ngModel)]="books.bookId" id="bookId">
-   </div>
-   <div class="form-group">
-     <label for="exampleInputEmail1">Description</label>
-     <input class="form-control" type="text" placeholder="Description " name ="description" id ="description"  [(ngModel)]="books.bookDescription" id="description">
-   </div>
-   <div class="form-group">
-     <label for="exampleInputEmail1">Genre</label>
-     <input class="form-control"type="text" placeholder="Genre " name ="genre" id ="genre"  [(ngModel)]="books.genre" id="genre">
-   </div>
-   <div class="form-group">
-     <label for="exampleInputEmail1">Price</label>
-     <input  class="form-control" type="text" placeholder="Price " name ="price" id ="price"  [(ngModel)]="books.price" id="price">
-   </div>
-   <div class="form-group">
-     <label for="exampleInputEmail1">Quantity</label>
-     <input class="form-control" type="text" placeholder="Quantity " name ="quantity" id ="quantity"  [(ngModel)]="books.quantity" id="quantity">
-   </div>
-   <div class="form-group">
-     <label for="exampleInputEmail1">Image URL</label>
-     <input class="form-control" type="text" placeholder="image " name ="image" id ="image"  [(ngModel)]="books.image" id="image">
-   </div>
-   <!-- Submit button -->
-   <button type="submit" class="btn btn-success btn-block mb-4 my-3">Add book</button>
- </form>
- </div>
+<body class ="body" >
+  
+  
+  <div class=" mx-5 d-flex align-items-center justify-content-center ">
+    <form (ngSubmit)="addBook()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Book Title</label>
+        <input  class="form-control my-1  " type="text" placeholder="Title " name ="title" id ="title"  [(ngModel)]="books.bookName">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Author</label>
+        <input  class="form-control my-1  " type="text" placeholder="Author " name ="author" id ="author"  [(ngModel)]="books.author" id="author">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Book Id</label>
+        <input  class="form-control my-1  " type="text" placeholder="book Id " name ="bookId" id ="bookId"  [(ngModel)]="books.bookId" id="bookId">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Description</label>
+        <input class="form-control my-1 " type="text" placeholder="Description " name ="description" id ="description"  [(ngModel)]="books.bookDescription" id="description">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Genre</label>
+        <input class="form-control my-1 "type="text" placeholder="Genre " name ="genre" id ="genre"  [(ngModel)]="books.genre" id="genre">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Price</label>
+        <input  class="form-control my-3" type="text" placeholder="Price " name ="price" id ="price"  [(ngModel)]="books.price" id="price">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Quantity</label>
+        <input class="form-control my-1 " type="text" placeholder="Quantity " name ="quantity" id ="quantity"  [(ngModel)]="books.quantity" id="quantity">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Image URL</label>
+        <input class="form-control my-1 " type="text" placeholder="image " name ="image" id ="image"  [(ngModel)]="books.image" id="image">
+      </div>
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-success btn-block mb-4 my-3">Add book</button>
+    </form>
+  </div>
+</body>

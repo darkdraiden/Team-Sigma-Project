@@ -1,0 +1,10 @@
+.background {
+    background-color: #FFA732;
+    height: 110%;
+  }
+  
+  body {
+    background-color: #FFA732;
+    margin: 0; /* Add this line to remove the default margin */
+  }
+  
