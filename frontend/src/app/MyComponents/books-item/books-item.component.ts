@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, inject } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -7,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-books-item',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './books-item.component.html',
   styleUrl: './books-item.component.css'
 })
@@ -16,7 +17,7 @@ export class BooksItemComponent {
     if(!localStorage || !localStorage.getItem('email'))
     this.router.navigate(['/login']);
   }
-
+  
   book: any;
   toster = inject(ToastrService)
   sellerId : any
@@ -26,10 +27,24 @@ export class BooksItemComponent {
       this.book = JSON.parse(params['bookData']);
       // console.log('Book data:', this.bookData);
     });
-
+    
     this.sellerId = this.book.sellseId
   }
+  
+  quantity :any =0
 
+  incrementQuantity() {
+    this.quantity++;
+  }
+
+  decrementQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
+
+
+  
 
   buyBook(book : any)
   {
@@ -46,9 +61,10 @@ export class BooksItemComponent {
     const obj = {
       bookId : book.bookId,
       sellerId : book.sellerId,
-      buyerId : email
+      buyerId : email,
+      quantity : this.quantity
     }
-    console.log(obj)
+    console.log(obj.quantity + "asdadsda")
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
 
     this.http.post(`http://localhost:8081/home/buy`, obj, { headers: headers })
