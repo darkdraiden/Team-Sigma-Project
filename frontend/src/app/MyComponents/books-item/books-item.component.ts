@@ -3,6 +3,7 @@ import { Component, Input, inject } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -71,6 +72,9 @@ export class BooksItemComponent {
 
       .subscribe(
         (res: any) =>   {
+          if(res.status === "Error")
+          this.toster.error(res.message,"Error")
+          else
           this.toster.success("Book ordered", "Success")
 
           // window.location.reload();
