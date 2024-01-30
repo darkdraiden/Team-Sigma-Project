@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public class OrderService {
     @Autowired
     BookService bookService;
     public void createOrder(String sellerId,Integer bookId,String buyerId){
-        Order order=new Order(bookId,buyerId,sellerId);
+        Order order=new Order(bookId,buyerId,sellerId,new Date());
         orderRepo.save(order);
 
     }

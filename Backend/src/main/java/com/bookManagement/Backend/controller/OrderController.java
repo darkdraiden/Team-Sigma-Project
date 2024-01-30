@@ -25,6 +25,7 @@ public class OrderController {
     public ResponseEntity<Map<String,String>> createOrder(@RequestBody Map<String,String> req){
          System.out.println("asdgkhasgd");
          Map<String,String> response=new HashMap<>();
+         Integer quantity=Integer.parseInt(req.get("quantity"));
          Integer bookId= Integer.parseInt(req.get("bookId"));
          String sellerId=req.get("sellerId");
 
@@ -38,12 +39,12 @@ public class OrderController {
          }
          Book existing=b.get();
          int q= existing.getQuantity();
-         if(q<=0){
+         if((q-quantity)<0){
              response.put("status", "Error");
              response.put("message", "Out of Stock");
              return ResponseEntity.ok(response);
          }
-         existing.setQuantity(q-1);
+         existing.setQuantity(q-quantity);
          bookService.addBook(existing);
          orderService.createOrder(sellerId, bookId, buyerId);
          response.put("status", "Success");

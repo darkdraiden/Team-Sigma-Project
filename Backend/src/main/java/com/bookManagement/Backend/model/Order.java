@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,10 +22,12 @@ public class Order {
     String buyerId;
 //    String name;
     String sellerId;
+    Date date;
 
-    public Order(Integer bookId, String buyerId, String sellerId) {
+    public Order(Integer bookId, String buyerId, String sellerId,Date date) {
         this.bookId = bookId;
         this.buyerId = buyerId;
         this.sellerId = sellerId;
+        this.date=date;
     }
 }
