@@ -31,7 +31,7 @@ export class BooksItemComponent {
     this.sellerId = this.book.sellseId
   }
   
-  quantity :any =0
+  quantity :any =1
 
   incrementQuantity() {
     this.quantity++;

@@ -3,14 +3,14 @@ import { Book } from "../../../app/Book";
 import { NgFor, NgIf } from '@angular/common';
 import { BooksItemComponent } from "../books-item/books-item.component";
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CarouselComponent } from "../carousel/carousel.component";
 @Component({
     selector: 'app-books',
     standalone: true,
     templateUrl: './books.component.html',
     styleUrl: './books.component.css',
-    imports: [NgFor, BooksItemComponent, CarouselComponent, NgIf]
+    imports: [NgFor, BooksItemComponent, CarouselComponent, NgIf, RouterModule]
 })
 export class BooksComponent implements OnInit {
   books : any

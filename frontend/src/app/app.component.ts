@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { LoginComponent } from "./MyComponents/login/login.component";
 import { SignupComponent } from "./MyComponents/signup/signup.component";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, LoginComponent, SignupComponent, HttpClientModule, FormsModule, NgIf]
+    imports: [CommonModule, RouterOutlet, LoginComponent, SignupComponent, HttpClientModule, FormsModule, NgIf, RouterModule]
 })
 export class AppComponent {
   title = 'BookApp';

@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
           </li>
           <!-- <ng-container *ngIf="!isTokenExist(); ">
             <li class="nav-item">
@@ -21,7 +21,7 @@
           </ng-container> -->
           <ng-container *ngIf="isTokenExist();">
             <li class="nav-item">
-              <a class="nav-link" href="/sellerbooks">Sell Books</a>
+              <a class="nav-link" routerLink="/sellerbooks">Sell Books</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="#" (click)="logout()">Logout</a>
@@ -29,7 +29,7 @@
           </ng-container>
           <ng-container *ngIf="isTokenExist();">
             <li class="nav-item">
-              <a class="nav-link" href="/mypurchase">My Purchase</a>
+              <a class="nav-link" routerLink="/mypurchase">My Purchase</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="#" (click)="logout()">Logout</a>
@@ -38,19 +38,19 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/signup">SignUp</a>
+            <a class="nav-link" routerLink="/signup">SignUp</a>
           </li>
         </ul>
         <!-- Rightmost position -->
         <ul class="navbar-nav ml-auto" *ngIf="!isTokenExist();">
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" routerLink="/login">Login</a>
           </li>
         </ul>
 
         <ul class="navbar-nav ml-auto" *ngIf="isTokenExist();">
           <li class="nav-item">
-            <a class="nav-link" href="/" (click)="logout()">Logout</a>
+            <a class="nav-link" routerLink="/" (click)="logout()">Logout</a>
           </li>
         </ul>
       </div>
