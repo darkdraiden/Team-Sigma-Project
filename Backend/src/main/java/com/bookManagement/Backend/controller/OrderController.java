@@ -55,7 +55,7 @@ public class OrderController {
 
      @GetMapping("home/myStock/{buyerId}")
      @CrossOrigin(origins = "http://localhost:4200")
-    public List<Book> myStock(@PathVariable String buyerId){
+    public List<Map<String,String>> myStock(@PathVariable String buyerId){
          System.out.println("my stock");
             return orderService.getAllBooks(buyerId);
      }

@@ -6,10 +6,7 @@ import com.bookManagement.Backend.repository.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class OrderService {
@@ -25,15 +22,26 @@ public class OrderService {
 
 
 
-    public List<Book> getAllBooks(String buyerId){
+    public List<Map<String,String>> getAllBooks(String buyerId){
         List<Order> orders=orderRepo.findOrderBy(buyerId);
         if(orders.isEmpty())
             return new ArrayList<>();
-        List<Book> books=new ArrayList<>();
+        List<Map<String,String>> books=new ArrayList<>();
         for(Order o:orders){
             Optional<Book> b=bookService.findBook(o.getBookId(),o.getSellerId());
+            Map<String,String> m=new HashMap<>();
             if(b.isPresent()){
-                books.add(b.get());
+                m.put("bookId",b.get().getBookId().toString());
+                m.put("bookName",b.get().getBookName());
+                m.put("bookDescription",b.get().getBookDescription());
+                m.put("price",b.get().getPrice().toString());
+                m.put("author",b.get().getAuthor());
+                m.put("quantity",b.get().getQuantity().toString());
+                m.put("sellerId",b.get().getSellerId());
+                m.put("genre",b.get().getGenre().toString());
+                m.put("date",o.getDate().toString());
+                books.add(m);
+
             }
         }
         return books;
