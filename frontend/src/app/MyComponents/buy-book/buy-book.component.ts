@@ -55,6 +55,7 @@ export class BuyBookComponent {
       // Navigate to 'bookitem' page and pass the book data as a parameter
       this.router.navigate(['/bookitem', { bookData: JSON.stringify(book) }]);
     } else {
+      
       console.error('Book data is undefined');
     }  
   }
