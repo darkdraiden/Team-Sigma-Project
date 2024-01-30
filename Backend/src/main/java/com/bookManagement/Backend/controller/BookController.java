@@ -28,9 +28,15 @@ public class BookController {
         Integer bookId = book.getBookId();
         String sellerId = book.getSellerId();
         Map<String, String> response = new HashMap<>();
-
-        if(bookService.doesExists(bookId, sellerId)){
-            int quantity=book.getQuantity();
+        String bookName=book.getBookName();
+        Integer quantity=book.getQuantity();
+        Integer price=book.getPrice();
+        if(bookName==""||quantity==0||bookId==0||price==0){
+            response.put("status", "error");
+            response.put("message", "Missing Data");
+        }
+        else if(bookService.doesExists(bookId, sellerId)){
+//            int quantity=book.getQuantity();
             book.setQuantity(quantity + 1);
             bookService.addBook(book);
             response.put("status", "Book already exists");

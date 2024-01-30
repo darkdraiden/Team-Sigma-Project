@@ -50,8 +50,15 @@ export class AddBookComponent {
     return this.http.post(`http://localhost:8081/home/create-book`, this.books, { headers })
       .subscribe(
         (res: any) => {
-          this.toster.success("Book Added!", "Success")
+          console.log(res)
+          if(res.status=="error"){
+            this.toster.error("Data Missing","Error")
+          // this.router.navigate(['/sellerbooks']);
+          }
+           else{
+          this.toster.success(res.message, "Success")
           this.router.navigate(['/sellerbooks']);
+           }
         },
         (error) => {
           this.toster.error("Data Missing","Error")
