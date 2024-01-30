@@ -19,7 +19,7 @@
             <h4 class="card-title" >{{ book.bookName }}</h4>
             <h5 class="card-text" style="font-style: oblique;">{{ book.bookDescription }}</h5>
             <h5 class="card-text">{{ book.author }}</h5>
-            <p class="card-text"> ₹ {{ book.price }}</p>
+            <p class="card-text" *ngIf="books.price !== null && books.price !== undefined">₹ {{ books.price }}</p>
             <div class="mt-auto text-center">
               <button type="submit" class="btn btn-success">Buy Now</button>
             </div>
